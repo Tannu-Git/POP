@@ -1,0 +1,31 @@
+Team ID: [YOUR_TEAM_ID_HERE]
+Member 1: [ID] [Name]
+Member 2: [ID] [Name]
+
+CS F301 POPL Assignment: Functional-OO File Processor
+Date: 26 November 2025
+
+1. Interpretation of Specifications
+We interpreted the requirement of "Functional-OO" as designing a system where the "WHAT" (the desired data transformations) is specified using high-level abstractions, while the "HOW" (loops, state management) is abstracted away using functional paradigms like Lambdas and Streams. We focused on creating a pipeline that Reads -> Transforms -> Aggregates -> Sorts/Searches.
+
+2. Chronological Design and Development
+- [Date/Time]: Initial analysis of the assignment PDF. We identified the need for a non-procedural approach.
+- [Date/Time]: Designed the "WHAT" interface. We decided on a menu-driven CLI for ease of testing.
+- [Date/Time]: Implemented the FileReaderAPI to handle IO streams functionally.
+- [Date/Time]: Implemented the AggregationUtils to handle "counting inversions" and "averages" as requested in the spec.
+- [Date/Time]: Integrated all modules into FunctionalFileProcessor and performed testing with dummy data.
+
+3. Usage of GenAI Tools
+As encouraged by the specification, we utilized LLMs to accelerate the development of the "HOW" part while we focused on the "WHAT".
+
+- Prompt 1: "Create a Java class structure that separates the 'What' (High level API) from the 'How' (Implementation) using Java Streams."
+  - Insight: The AI suggested using a wrapper class around List<T> to enforce functional mapping and filtering, preventing us from accidentally using iterative loops in the main logic.
+
+- Prompt 2: "Write a functional aggregation method to count inversions and calculate averages from a list of strings containing mixed text and numbers."
+  - Insight: This helped us implement the `AggregationUtils` class. We learned how to use regex within a Stream `flatMap` to extract numbers for averaging without breaking the functional chain.
+
+4. Features
+- Menu-driven interface.
+- Functional keyword search (Map/Reduce).
+- Mathematical aggregations (Inversions, Averages) on unstructured text.
+- Modularity: IO, Logic, and Math are in separate classes.
